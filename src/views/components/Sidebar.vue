@@ -1,7 +1,7 @@
 <template>
     <Sider class="sider" hide-trigger collapsible :width="210" :collapsed-width="70">
         <Menu ref="menu" :active-name="activeName.name" :accordion="true" theme="light"
-              width="auto">
+              width="auto" @on-select="handleSelect">
             <Submenu :name="menu.menuCode" v-for="menu in menuList" :key="menu.menuCode">
                 <template slot="title">
                     <Icon :type="menu.icon"/>
@@ -26,6 +26,11 @@
             },
             activeName: {
                 type: Object
+            }
+        },
+        methods: {
+            handleSelect(name) {
+                this.$emit('on-select', name);
             }
         }
     };

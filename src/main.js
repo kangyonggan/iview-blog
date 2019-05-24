@@ -29,8 +29,25 @@ const router = new VueRouter(RouterConfig);
 
 router.beforeEach((to, from, next) => {
     iView.LoadingBar.start();
-    Util.title(to.meta.title);
-    next();
+
+    if (to.meta.title) {
+        Util.title(to.meta.title);
+    }
+
+    if (to.name === 'login') {
+        next();
+        return;
+    }
+
+    let token = Util.token();
+    if (token) {
+        next();
+    } else {
+        // 未登陆的前往登录界面
+        next({
+            name: 'login'
+        });
+    }
 });
 
 router.afterEach(() => {

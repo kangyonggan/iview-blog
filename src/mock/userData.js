@@ -10,42 +10,42 @@ export default {
             children: [{
                 menuCode: 'SYSTEM',
                 menuName: '系统',
-                icon: 'ios-cog-outline',
+                icon: 'social-windows-outline',
                 children: [{
-                    menuCode: 'SYSTEM-USER',
+                    menuCode: 'SYSTEM_USER',
                     menuName: '用户管理',
                     icon: ''
                 }, {
-                    menuCode: 'SYSTEM-ROLE',
+                    menuCode: 'SYSTEM_ROLE',
                     menuName: '角色管理',
                     icon: ''
                 }, {
-                    menuCode: 'SYSTEM-MENU',
+                    menuCode: 'SYSTEM_MENU',
                     menuName: '菜单管理',
                     icon: ''
                 }, {
-                    menuCode: 'SYSTEM-DICT',
+                    menuCode: 'SYSTEM_DICT',
                     menuName: '字典管理',
                     icon: ''
                 }]
             }, {
                 menuCode: 'SITES',
                 menuName: '网站',
-                icon: 'ios-color-palette-outline',
+                icon: 'android-desktop',
                 children: [{
-                    menuCode: 'SITES-ARTICLE',
+                    menuCode: 'SITES_ARTICLE',
                     menuName: '文章管理',
                     icon: ''
                 }, {
-                    menuCode: 'SITES-ALBUM',
+                    menuCode: 'SITES_ALBUM',
                     menuName: '相册管理',
                     icon: ''
                 }, {
-                    menuCode: 'SITES-VIDEO',
+                    menuCode: 'SITES_VIDEO',
                     menuName: '视频管理',
                     icon: ''
                 }, {
-                    menuCode: 'SITES-NOVEL',
+                    menuCode: 'SITES_NOVEL',
                     menuName: '小说管理',
                     icon: ''
                 }]

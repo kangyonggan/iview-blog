@@ -39,7 +39,7 @@ util.token = function () {
     if (token) {
         return token;
     }
-    return false;
+    return '';
 };
 
 /**
@@ -138,6 +138,30 @@ util.decryptUrl = function (url) {
     }).toString(CryptoJS.enc.Utf8);
 
     return decodeURIComponent(url);
+};
+
+/**
+ * 存储标签导航列表
+ *
+ * @param userId
+ * @param list
+ */
+util.setTagNavList = function (userId, list) {
+    Cookies.set('tagNaveList_' + userId, list);
+};
+
+/**
+ * 获取标签导航列表
+ * @param userId
+ */
+util.getTagNavList = function (userId) {
+    let list = Cookies.get('tagNaveList_' + userId);
+    return list ? JSON.parse(list) : [{
+        name: 'index',
+        meta: {
+            title: '首页'
+        }
+    }];
 };
 
 export default util;
