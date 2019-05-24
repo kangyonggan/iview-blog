@@ -43,7 +43,7 @@ class HttpRequest {
             this.destroy(url);
             if (data.respCo === '0000') {
                 // 成功
-                return data;
+                return data.data;
             } else {
                 // 各种失败
                 return Promise.reject(data);
@@ -92,21 +92,6 @@ class HttpRequest {
     // POST请求实例
     post(url, data) {
         let options = {
-            url: url,
-            data,
-            method: 'post'
-        };
-        let instance = this.create();
-        this.interceptors(instance, options.url);
-        options = Object.assign({}, options);
-        this.queue[options.url] = instance;
-        return instance(options);
-    }
-
-    // POST文件上传请求实例
-    postUpload(url, data) {
-        let options = {
-            type: 'upload',
             url: url,
             data,
             method: 'post'

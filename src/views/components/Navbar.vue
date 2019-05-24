@@ -5,13 +5,12 @@
                 <img src="/static/images/logo.png"/>
             </router-link>
 
-            <Dropdown class="navbar-user" trigger="click" placement="bottom-end">
+            <Dropdown class="navbar-user" trigger="click" @on-click="handleClick" placement="bottom-end">
                 <a class="avatar">
-                    <img src="/static/images/avatar.jpg"/>
+                    <img :src="getAvatar()"/>
                     <Icon type="arrow-down-b"></Icon>
                 </a>
                 <DropdownMenu slot="list">
-                    <DropdownItem name="profile">个人资料</DropdownItem>
                     <DropdownItem name="logout">安全退出</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
@@ -20,7 +19,33 @@
 </template>
 
 <script>
-    export default {};
+    export default {
+        props: {
+            user: {
+                type: Object,
+                default: {}
+            }
+        },
+        methods: {
+            handleClick(name) {
+                switch (name) {
+                    case 'logout': {
+                        this.util.removeToken();
+                        this.http.get('logout').then(() => {
+                            this.$router.push({
+                                name: 'login'
+                            });
+                        });
+                        break;
+                    }
+                }
+            },
+            getAvatar: function () {
+                let avatar = this.user.avatar;
+                return avatar ? this.baseUrl + avatar : '/static/images/avatar.jpg';
+            }
+        }
+    };
 </script>
 
 <style scoped lang="less">

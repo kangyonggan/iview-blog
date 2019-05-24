@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import Config from '@/config/config';
+import Util from '@/libs/util';
 
 // 定义全局方法
 Vue.prototype.error = error;
 Vue.prototype.success = success;
 Vue.prototype.warning = warning;
 Vue.prototype.dateFormat = dateFormat;
-Vue.prototype.baseUrl = Config.baseUrl;
+Vue.prototype.util = Util;
 
 /**
  * 错误

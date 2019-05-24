@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
-        <Navbar/>
-        <Sidebar :menu-list="menuList" :active-name="$route"/>
+        <Navbar :user="user"/>
+        <Sidebar :menuList="menuList" :activeName="$route"/>
         <div class="main">
             <TagsNav :value="$route" :list="tagNavList"/>
             <keep-alive>
@@ -23,6 +23,7 @@
         data() {
             return {
                 collapsed: false,
+                user: {},
                 menuList: [],
                 tagNavList: [{
                     name: 'index',
@@ -36,6 +37,14 @@
                     }
                 }]
             };
+        },
+        mounted() {
+            this.http.get('userData').then(data => {
+                this.user = data.user;
+                this.menuList = data.menu.children;
+            }).catch(res => {
+                this.error(res.respMsg);
+            });
         }
     };
 </script>

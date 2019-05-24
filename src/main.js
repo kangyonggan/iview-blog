@@ -10,7 +10,7 @@ import './libs/http';
 import './components/index';
 import env from './config/env';
 import './libs/common';
-import StoreApp from './store/app';
+import app from './store/app';
 
 if (env === 'mock') {
     require('./mock');
@@ -41,6 +41,6 @@ router.afterEach(() => {
 new Vue({
     el: '#app',
     router: router,
-    store: {StoreApp},
+    store: {app},
     render: h => h(App)
 });
