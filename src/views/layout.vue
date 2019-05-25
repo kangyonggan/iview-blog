@@ -3,7 +3,7 @@
         <Navbar :user="user"/>
         <Sidebar :menuList="menuList" :activeName="$route" @on-select="turnToPage"/>
         <div class="main">
-            <TagsNav :value="$route" :list="tagNavList"/>
+            <TagsNav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag"/>
             <keep-alive>
                 <div style="margin: 10px;clear: both">
                     <router-view/>
@@ -33,6 +33,22 @@
                 this.$router.push({
                     name: name
                 });
+            },
+            // 关闭Tab页
+            handleCloseTag (res, route) {
+                this.tagNavList = res;
+                this.util.setTagNavList(this.user.userId, res);
+                if (route) {
+                    this.handleClick(route);
+                }
+            },
+            // 激活Tab页
+            handleClick (item) {
+                this.$router.push({
+                    name: item.name,
+                    params: item.meta.params,
+                    query: item.meta.query
+                })
             }
         },
         mounted() {
