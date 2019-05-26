@@ -1,7 +1,7 @@
 <template>
     <Sider class="sider" hide-trigger collapsible :width="210" :collapsed-width="70">
         <Menu ref="menu" :active-name="activeName.name" :accordion="true" theme="light"
-              width="auto" @on-select="handleSelect">
+              :open-names="openedNames" width="auto" @on-select="handleSelect">
             <Submenu :name="menu.menuCode" v-for="menu in menuList" :key="menu.menuCode">
                 <template slot="title">
                     <Icon :type="menu.icon"/>
@@ -28,10 +28,31 @@
                 type: Object
             }
         },
+        data() {
+            return {
+                openedNames: []
+            };
+        },
         methods: {
             handleSelect(name) {
                 this.$emit('on-select', name);
+            },
+            getOpenedNamesByActiveName(name) {
+                return this.$route.matched.map(item => item.name).filter(item => item !== name);
             }
+        },
+        watch: {
+            activeName(route) {
+                this.openedNames = this.getOpenedNamesByActiveName(route.name);
+            },
+            openedNames() {
+                this.$nextTick(() => {
+                    this.$refs.menu.updateOpened();
+                });
+            }
+        },
+        mounted() {
+            this.openedNames = this.getOpenedNamesByActiveName(this.$route.name);
         }
     };
 </script>

@@ -17,37 +17,47 @@ const routers = [{
             component: (resolve) => require(['./views/index.vue'], resolve)
         },
         {
-            path: 'system/user',
-            name: 'SYSTEM_USER',
+            path: 'system',
+            name: 'SYSTEM',
             meta: {
-                title: '用户管理'
+                title: '系统'
             },
-            component: (resolve) => require(['./views/system/user/index.vue'], resolve)
+            children: [
+                {
+                    path: 'user',
+                    name: 'SYSTEM_USER',
+                    meta: {
+                        title: '用户管理'
+                    },
+                    component: (resolve) => require(['./views/system/user/index.vue'], resolve)
+                },
+                {
+                    path: 'role',
+                        name: 'SYSTEM_ROLE',
+                    meta: {
+                    title: '角色管理'
+                },
+                    component: (resolve) => require(['./views/system/role/index.vue'], resolve)
+                },
+                {
+                    path: 'menu',
+                        name: 'SYSTEM_MENU',
+                    meta: {
+                    title: '菜单管理'
+                },
+                    component: (resolve) => require(['./views/system/menu/index.vue'], resolve)
+                },
+                {
+                    path: 'dict',
+                        name: 'SYSTEM_DICT',
+                    meta: {
+                    title: '字典管理'
+                },
+                    component: (resolve) => require(['./views/system/dict/index.vue'], resolve)
+                }
+            ]
         },
         {
-            path: 'system/role',
-            name: 'SYSTEM_ROLE',
-            meta: {
-                title: '角色管理'
-            },
-            component: (resolve) => require(['./views/system/role/index.vue'], resolve)
-        },
-        {
-            path: 'system/menu',
-            name: 'SYSTEM_MENU',
-            meta: {
-                title: '菜单管理'
-            },
-            component: (resolve) => require(['./views/system/menu/index.vue'], resolve)
-        },
-        {
-            path: 'system/dict',
-            name: 'SYSTEM_DICT',
-            meta: {
-                title: '字典管理'
-            },
-            component: (resolve) => require(['./views/system/dict/index.vue'], resolve)
-        }, {
             path: '/*',
             name: '404',
             meta: {
