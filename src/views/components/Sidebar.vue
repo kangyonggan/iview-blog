@@ -38,7 +38,7 @@
                 this.$emit('on-select', name);
             },
             getOpenedNamesByActiveName(name) {
-                return this.$route.matched.map(item => item.name).filter(item => item !== name);
+                return this.$route.matched.map(item => item.name).filter(item => (item !== name && item !== 'layout'));
             }
         },
         watch: {
@@ -50,9 +50,6 @@
                     this.$refs.menu.updateOpened();
                 });
             }
-        },
-        mounted() {
-            this.openedNames = this.getOpenedNamesByActiveName(this.$route.name);
         }
     };
 </script>

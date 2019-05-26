@@ -86,6 +86,20 @@
 </script>
 
 <style lang="less">
+    @import "../../my-theme/custom";
+
+    .ivu-tag {
+        .ivu-tag-dot-inner {
+            background: @primary-color;
+        }
+    }
+
+    .ivu-tag-default {
+        .ivu-tag-dot-inner {
+            background: #e3e8ee !important;
+        }
+    }
+
     .layout {
         height: 100%;
     }
