@@ -76,9 +76,9 @@
                 height: 50px;
 
                 img {
-                    margin-top: 8px;
-                    height: 43px;
-                    width: 43px;
+                    margin-top: 15px;
+                    height: 35px;
+                    width: 35px;
                     border-radius: 50%;
                 }
 
