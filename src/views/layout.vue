@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
         <Navbar :user="user"/>
-        <Sidebar :menuList="menuList" :activeName="$route" @on-select="turnToPage"/>
+        <Sidebar :activeName="$route" @on-select="turnToPage"/>
         <div class="main">
             <TagsNav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag"/>
             <keep-alive>
@@ -23,7 +23,6 @@
         data() {
             return {
                 user: {},
-                menuList: [],
                 tagNavList: []
             };
         },
@@ -54,7 +53,6 @@
         mounted() {
             this.http.get('userData').then(data => {
                 this.user = data.user;
-                this.menuList = data.menu.children;
 
                 this.tagNavList = this.util.getTagNavList(this.user.userId);
             }).catch(res => {

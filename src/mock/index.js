@@ -2,6 +2,7 @@ import Mock from 'mockjs';
 import success from './success';
 import login from './login';
 import userData from './userData';
+import menus from './menus';
 
 /**
  * 登录
@@ -22,6 +23,13 @@ Mock.mock('logout', 'get', () => {
  */
 Mock.mock('userData', 'get', () => {
     return userData;
+});
+
+/**
+ * 用户菜单
+ */
+Mock.mock('menus', 'get', () => {
+    return menus;
 });
 
 

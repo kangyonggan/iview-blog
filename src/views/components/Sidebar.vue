@@ -1,6 +1,6 @@
 <template>
     <Sider class="sider" hide-trigger collapsible :width="210" :collapsed-width="70">
-        <Menu ref="menu" :active-name="activeName.name" :accordion="true" theme="light"
+        <Menu ref="menu" :active-name="$route.name" :accordion="true" theme="light"
               :open-names="openedNames" width="auto" @on-select="handleSelect">
             <Submenu :name="menu.menuCode" v-for="menu in menuList" :key="menu.menuCode">
                 <template slot="title">
@@ -18,18 +18,13 @@
 <script>
     export default {
         props: {
-            menuList: {
-                type: Array,
-                default() {
-                    return [];
-                }
-            },
             activeName: {
                 type: Object
             }
         },
         data() {
             return {
+                menuList: [],
                 openedNames: []
             };
         },
@@ -50,6 +45,19 @@
                     this.$refs.menu.updateOpened();
                 });
             }
+        },
+        mounted() {
+            this.http.get('menus').then(data => {
+                this.menuList = data.menu.children;
+                this.openedNames = this.getOpenedNamesByActiveName(this.$route.name);
+                this.$nextTick(() => {
+                    this.$refs.menu.updateOpened();
+                    this.$refs.menu.updateActiveName();
+                });
+
+            }).catch(res => {
+                this.error(res.respMsg);
+            });
         }
     };
 </script>
