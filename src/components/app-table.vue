@@ -1,9 +1,10 @@
 <template>
     <div style="margin-top: 20px; margin-bottom: 20px;">
         <!--表格-->
-        <Table :loading="loading" border highlight-row :columns="columns" :data="pageInfo.list"
-               @on-sort-change="sortChange" @on-row-dblclick="dblclick">
-            <slot></slot>
+        <Table :loading="loading" border highlight-row :columns="columns" :data="pageInfo.list" @on-sort-change="sortChange">
+            <span slot-scope="{row, index}" slot="actions" class="actions">
+                <slot></slot>
+            </span>
         </Table>
 
         <!--分页-->
@@ -68,12 +69,6 @@
         },
         methods: {
             /**
-             * 双击某一行时触发
-             */
-            dblclick: function (selection) {
-                this.$emit('dblclick', selection);
-            },
-            /**
              * 刷新
              */
             refresh: function () {
@@ -123,3 +118,9 @@
 
     Vue.component('AppTable', AppTable);
 </script>
+
+<style>
+    .actions i {
+        cursor: pointer;
+    }
+</style>

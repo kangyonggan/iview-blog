@@ -6,16 +6,19 @@
             <AppDatePicker type="daterange" :model="user" prop="createdTime" placeholder="创建日期"/>
             <Row>
                 <Button type="info" icon="ios-search" @click="$refs['table'].refresh()">查询</Button>
-                <Button type="warning" icon="ios-refresh-empty" @click="$refs['queryForm'].resetFields()">清除</Button>
-                <Button type="primary" icon="plus">新增</Button>
+                <Button type="warning" icon="ios-refresh" @click="$refs['queryForm'].resetFields()">清除</Button>
+                <Button type="primary" icon="ios-add">新增</Button>
             </Row>
         </Form>
 
         <!--表格-->
-        <AppTable ref="table" url="/system/user" :columns="columns" :form="$refs.queryForm" @dblclick="dblclick">
+        <AppTable ref="table" url="/system/user" :columns="columns" :form="$refs.queryForm">
             <!--表格的操作-->
-            <template slot-scope="{row, index}" slot="action">
-                <span>action</span>
+            <template slot-scope="{row, index}">
+                <Icon type="ios-create-outline" color="blue" :size="18" title="编辑"/>
+                <Icon type="ios-trash-outline" color="red" :size="18" title="逻辑删除"/>
+                <Icon type="ios-eye-outline" color="#f90" :size="18" title="修改密码"/>
+                <Icon type="ios-people-outline" color="green" :size="18" title="设置角色"/>
             </template>
         </AppTable>
     </div>
@@ -61,19 +64,21 @@
                         }
                     }, {
                         title: '操作',
-                        // slot: 'action'
+                        slot: 'actions'
                     }]
             };
         },
         methods: {
-
             /**
-             * 双击编辑
+             * 逻辑删除
              *
              * @param row
+             * @param index
              */
-            dblclick: function (row) {
+            delete: function (row, index) {
+                console.log('delete');
                 console.log(row);
+                console.log(index);
             }
         }
     };
