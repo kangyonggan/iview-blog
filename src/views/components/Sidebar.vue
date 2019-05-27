@@ -48,15 +48,21 @@
         },
         mounted() {
             this.http.get('menus').then(data => {
-                this.menuList = data.menu.children;
+                this.menuList = data.menus;
                 this.openedNames = this.getOpenedNamesByActiveName(this.$route.name);
                 this.$nextTick(() => {
                     this.$refs.menu.updateOpened();
                     this.$refs.menu.updateActiveName();
                 });
-
             }).catch(res => {
-                this.error(res.respMsg);
+                if (res.respCo === '9998') {
+                    this.util.removeToken();
+                    this.$router.push({
+                        name: 'login'
+                    });
+                } else {
+                    this.error(res.respMsg);
+                }
             });
         }
     };

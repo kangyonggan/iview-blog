@@ -34,7 +34,7 @@
                 });
             },
             // 关闭Tab页
-            handleCloseTag (res, route) {
+            handleCloseTag(res, route) {
                 this.tagNavList = res;
                 this.util.setTagNavList(this.user.userId, res);
                 if (route) {
@@ -42,12 +42,12 @@
                 }
             },
             // 激活Tab页
-            handleClick (item) {
+            handleClick(item) {
                 this.$router.push({
                     name: item.name,
                     params: item.meta.params,
                     query: item.meta.query
-                })
+                });
             }
         },
         mounted() {
@@ -56,11 +56,18 @@
 
                 this.tagNavList = this.util.getTagNavList(this.user.userId);
             }).catch(res => {
-                this.error(res.respMsg);
+                if (res.respCo === '9998') {
+                    this.util.removeToken();
+                    this.$router.push({
+                        name: 'login'
+                    });
+                } else {
+                    this.error(res.respMsg);
+                }
             });
         },
         watch: {
-            '$route' (newRoute) {
+            '$route'(newRoute) {
                 let exists = false;
                 for (let i = 0; i < this.tagNavList.length; i++) {
                     if (this.tagNavList[i].name === newRoute.name) {

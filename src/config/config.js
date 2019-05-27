@@ -3,7 +3,7 @@ import Env from './env';
 let baseUrl = '';
 
 if (Env === 'development') {
-    baseUrl = 'http://localhost:8080';
+    baseUrl = 'http://localhost:8080/api/';
 } else if (Env === 'hd') {
     baseUrl = 'https://kangyonggan.com/api';
 } else if (Env === 'production') {

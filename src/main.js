@@ -44,6 +44,7 @@ router.beforeEach((to, from, next) => {
         next();
     } else {
         // 未登陆的前往登录界面
+        Util.removeToken();
         next({
             name: 'login'
         });
