@@ -33,7 +33,20 @@
                 this.$emit('on-select', name);
             },
             getOpenedNamesByActiveName(name) {
-                return this.$route.matched.map(item => item.name).filter(item => (item !== name && item !== 'layout'));
+                let res = [];
+                for (let i = 0; i < this.menuList.length; i++) {
+                    let menu = this.menuList[i];
+                    if (!menu.children) {
+                        continue;
+                    }
+                    for (let j = 0; j < menu.children.length; j++) {
+                        if (menu.children[j].menuCode === name) {
+                            res.push(menu.menuCode);
+                            return res;
+                        }
+                    }
+                }
+                return res;
             }
         },
         watch: {
