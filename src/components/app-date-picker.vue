@@ -1,11 +1,14 @@
 <template>
     <FormItem :prop="prop">
-        <DatePicker v-model="model[prop]" :placeholder="placeholder" @on-change="model[prop]=$event"/>
+        <DatePicker :type="type" v-model="model[prop]" :placeholder="placeholder"
+                    @on-change="model[prop]=$event"
+                    :class="{large: type === 'daterange' || type === 'datetime' || type === 'datetimerange'}"/>
     </FormItem>
 </template>
 
 <script>
     import Vue from 'vue';
+    import {oneOf} from 'iview/src/utils/assist';
 
     const AppDatePicker = {
         props: {
@@ -17,6 +20,14 @@
                 required: true,
                 type: String
             },
+            type: {
+                required: false,
+                type: String,
+                default: 'date',
+                validator(value) {
+                    return oneOf(value, ['date', 'daterange', 'datetime', 'datetimerange', 'year', 'month']);
+                }
+            },
             placeholder: {
                 type: String
             }
@@ -27,3 +38,9 @@
 
     Vue.component('AppDatePicker', AppDatePicker);
 </script>
+
+<style scoped>
+    .large {
+        width: 220px;
+    }
+</style>

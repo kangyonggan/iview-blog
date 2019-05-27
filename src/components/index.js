@@ -10,3 +10,6 @@ import './app-select';
 
 // 日期选择框
 import './app-date-picker';
+
+// 表格
+import './app-table';

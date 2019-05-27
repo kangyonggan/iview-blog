@@ -3,6 +3,7 @@ import success from './success';
 import login from './login';
 import userData from './userData';
 import menus from './menus';
+import users from './users';
 
 /**
  * 登录
@@ -30,6 +31,13 @@ Mock.mock('userData', 'get', () => {
  */
 Mock.mock('menus', 'get', () => {
     return menus;
+});
+
+/**
+ * 用户列表
+ */
+Mock.mock('/system/user', 'post', () => {
+    return users;
 });
 
 

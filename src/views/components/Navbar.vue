@@ -8,7 +8,7 @@
             <Dropdown class="navbar-user" trigger="click" @on-click="handleClick" placement="bottom-end">
                 <a class="avatar">
                     <img :src="getAvatar()"/>
-                    <Icon type="arrow-down-b"></Icon>
+                    <Icon type="md-arrow-dropdown" color="#999"/>
                 </a>
                 <DropdownMenu slot="list">
                     <DropdownItem name="logout">安全退出</DropdownItem>
@@ -49,8 +49,6 @@
 </script>
 
 <style scoped lang="less">
-    @import "../../../my-theme/custom";
-
     .navbar {
         height: 60px;
         background: #fff;
@@ -68,7 +66,7 @@
         }
 
         &-user {
-            margin-right: 10px;
+            margin-right: 20px;
             float: right;
 
             .avatar {

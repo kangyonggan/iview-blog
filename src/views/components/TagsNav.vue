@@ -4,7 +4,7 @@
             <div class="close-con">
                 <Dropdown trigger="click" @on-click="handleTagsOption" style="margin-top:7px;" placement="bottom-end">
                     <Button size="small" type="text">
-                        <Icon :size="18" type="ios-close-outline"></Icon>
+                        <Icon type="ios-close-circle-outline" :size="18"/>
                     </Button>
                     <DropdownMenu slot="list">
                         <DropdownItem name="close-all">全部关闭</DropdownItem>
@@ -13,10 +13,10 @@
                 </Dropdown>
             </div>
             <div class="btn-con left-btn">
-                <Button icon="chevron-left" type="text" @click="handleScroll(240)"></Button>
+                <Button icon="ios-arrow-dropleft" type="text" @click="handleScroll(240)"></Button>
             </div>
             <div class="btn-con right-btn">
-                <Button icon="chevron-right" type="text" @click="handleScroll(-240)"></Button>
+                <Button icon="ios-arrow-dropright" type="text" @click="handleScroll(-240)"></Button>
             </div>
             <div class="scroll-outer" ref="scrollOuter" @DOMMouseScroll="handlescroll" @mousewheel="handlescroll">
                 <div ref="scrollBody" class="scroll-body" :style="{left: tagBodyLeft + 'px'}">

@@ -5,10 +5,11 @@ function layout(resolve) {
 const routers = [{
     path: '/',
     name: 'layout',
+    redirect: '/index',
     component: (resolve) => layout(resolve),
     children: [
         {
-            path: 'index',
+            path: '/',
             name: 'index',
             meta: {
                 title: '首页'

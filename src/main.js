@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import Routers from './router';
 import Vuex from 'vuex';
 import iView from 'iview';
-import '../my-theme/dist/iview.css';
+import 'iview/dist/styles/iview.css';
 import Util from './libs/util';
 import App from './app.vue';
 import './libs/http';
