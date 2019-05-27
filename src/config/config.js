@@ -5,9 +5,9 @@ let baseUrl = '';
 if (Env === 'development') {
     baseUrl = 'http://localhost:8080';
 } else if (Env === 'hd') {
-    baseUrl = 'https://kangyonggan.com/admin';
+    baseUrl = 'https://kangyonggan.com/api';
 } else if (Env === 'production') {
-    baseUrl = 'https://kangyonggan.com/admin';
+    baseUrl = 'https://kangyonggan.com/api';
 }
 
 let config = {
