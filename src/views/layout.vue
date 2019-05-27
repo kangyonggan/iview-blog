@@ -5,7 +5,7 @@
         <div class="main">
             <TagsNav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag"/>
             <keep-alive>
-                <div style="margin: 10px;clear: both">
+                <div style="margin: 20px;clear: both">
                     <router-view/>
                 </div>
             </keep-alive>
