@@ -97,6 +97,7 @@
 
     .main {
         float: left;
+        min-height: ~"calc(100% - 60px)";
         border-left: 1px solid #d2d2d2;
         width: ~"calc(100% - 218px)";
     }

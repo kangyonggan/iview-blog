@@ -5,6 +5,8 @@ import userData from './userData';
 import menus from './menus';
 import users from './users';
 import userRole from './userRole';
+import roles from './roles';
+import roleMenu from './roleMenu';
 
 /**
  * 登录
@@ -80,6 +82,48 @@ Mock.mock('/system/user/delete', 'post', () => {
  * 修改用户密码
  */
 Mock.mock('/system/user/password', 'post', () => {
+    return success;
+});
+
+/**
+ * 角色列表
+ */
+Mock.mock('/system/role', 'post', () => {
+    return roles;
+});
+
+/**
+ * 角色代码校验
+ */
+Mock.mock('/validate/role', 'post', () => {
+    return success;
+});
+
+/**
+ * 保存角色
+ */
+Mock.mock('/system/role/save', 'post', () => {
+    return success;
+});
+
+/**
+ * 删除/恢复角色
+ */
+Mock.mock('/system/role/delete', 'post', () => {
+    return success;
+});
+
+/**
+ * 查找角色菜单
+ */
+Mock.mock('/system/role/menu', 'post', () => {
+    return roleMenu;
+});
+
+/**
+ * 更新角色
+ */
+Mock.mock('/system/role/update', 'post', () => {
     return success;
 });
 

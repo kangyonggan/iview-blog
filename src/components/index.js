@@ -16,3 +16,6 @@ import './app-table';
 
 // 模态框
 import './app-modal';
+
+// 树
+import './app-tree';

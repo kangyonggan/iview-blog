@@ -1,9 +1,9 @@
 <template>
     <div>
         <!--搜索表单-->
-        <Form ref="queryForm" :model="user" class="bg-white" inline>
+        <Form ref="queryForm" :model="user" inline>
             <AppInput :model="user" prop="email" placeholder="请输入电子邮箱"/>
-            <AppDatePicker type="daterange" :model="user" prop="createdTime" placeholder="创建日期"/>
+            <AppDatePicker type="daterange" :model="user" prop="createdTime" placeholder="请选择创建日期"/>
             <Row>
                 <Button type="info" icon="md-search" @click="$refs['table'].refresh()">查询</Button>
                 <Button type="warning" icon="md-refresh" @click="$refs['queryForm'].resetFields()">清除</Button>
