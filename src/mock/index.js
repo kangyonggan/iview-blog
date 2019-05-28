@@ -7,6 +7,7 @@ import users from './users';
 import userRole from './userRole';
 import roles from './roles';
 import roleMenu from './roleMenu';
+import sysMenus from './sysMenus';
 
 /**
  * 登录
@@ -125,6 +126,13 @@ Mock.mock('/system/role/menu', 'post', () => {
  */
 Mock.mock('/system/role/update', 'post', () => {
     return success;
+});
+
+/**
+ * 菜单列表
+ */
+Mock.mock('/system/menu', 'get', () => {
+    return sysMenus;
 });
 
 export default Mock;
