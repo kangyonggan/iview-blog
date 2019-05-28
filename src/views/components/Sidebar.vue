@@ -84,11 +84,6 @@
 <style lang="less">
     .sider {
         float: left;
-        height: ~"calc(100% - 60px)";
         overflow: scroll;
-
-        & > div, & > div > ul {
-            height: 100%;
-        }
     }
 </style>

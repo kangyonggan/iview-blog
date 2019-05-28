@@ -97,6 +97,7 @@
 
     .main {
         float: left;
-        width: ~"calc(100% - 215px)";
+        border-left: 1px solid #d2d2d2;
+        width: ~"calc(100% - 218px)";
     }
 </style>
