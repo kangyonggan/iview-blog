@@ -5,7 +5,7 @@ export default {
         'menus': [{
             menuCode: 'SYSTEM',
             menuName: '系统',
-            icon: 'ios-cog-outline',
+            icon: 'md-cog',
             children: [{
                 menuCode: 'SYSTEM_USER',
                 menuName: '用户管理',
@@ -26,7 +26,7 @@ export default {
         }, {
             menuCode: 'SITES',
             menuName: '网站',
-            icon: 'ios-desktop-outline',
+            icon: 'md-desktop',
             children: [{
                 menuCode: 'SITES_ARTICLE',
                 menuName: '文章管理',

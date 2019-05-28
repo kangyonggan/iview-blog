@@ -1,9 +1,10 @@
 <template>
     <div style="margin-top: 20px; margin-bottom: 20px;">
         <!--表格-->
-        <Table :loading="loading" border highlight-row :columns="columns" :data="pageInfo.list" @on-sort-change="sortChange">
+        <Table :loading="loading" border highlight-row :columns="columns" :data="pageInfo.list"
+               @on-sort-change="sortChange">
             <span slot-scope="{row, index}" slot="actions" class="actions">
-                <slot></slot>
+                <slot :row="row" :index="index"></slot>
             </span>
         </Table>
 

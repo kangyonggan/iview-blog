@@ -13,10 +13,10 @@
                 </Dropdown>
             </div>
             <div class="btn-con left-btn">
-                <Button icon="ios-arrow-dropleft" type="text" @click="handleScroll(240)"></Button>
+                <Button icon="md-arrow-dropleft" type="text" @click="handleScroll(240)"></Button>
             </div>
             <div class="btn-con right-btn">
-                <Button icon="ios-arrow-dropright" type="text" @click="handleScroll(-240)"></Button>
+                <Button icon="md-arrow-dropright" type="text" @click="handleScroll(-240)"></Button>
             </div>
             <div class="scroll-outer" ref="scrollOuter" @DOMMouseScroll="handlescroll" @mousewheel="handlescroll">
                 <div ref="scrollBody" class="scroll-body" :style="{left: tagBodyLeft + 'px'}">
@@ -188,6 +188,7 @@
                 height: ~"calc(100% - 1px)";
                 display: inline-block;
                 padding: 1px 4px 0;
+                margin: 0 6px;
                 position: absolute;
                 overflow: visible;
                 white-space: nowrap;

@@ -5,9 +5,9 @@
             <AppInput :model="user" prop="email" placeholder="请输入电子邮箱"/>
             <AppDatePicker type="daterange" :model="user" prop="createdTime" placeholder="创建日期"/>
             <Row>
-                <Button type="info" icon="ios-search" @click="$refs['table'].refresh()">查询</Button>
-                <Button type="warning" icon="ios-refresh" @click="$refs['queryForm'].resetFields()">清除</Button>
-                <Button type="primary" icon="ios-add">新增</Button>
+                <Button type="info" icon="md-search" @click="$refs['table'].refresh()">查询</Button>
+                <Button type="warning" icon="md-refresh" @click="$refs['queryForm'].resetFields()">清除</Button>
+                <Button type="primary" icon="md-add" @click="$refs['createModal'].show()">新增</Button>
             </Row>
         </Form>
 
@@ -15,16 +15,22 @@
         <AppTable ref="table" url="/system/user" :columns="columns" :form="$refs.queryForm">
             <!--表格的操作-->
             <template slot-scope="{row, index}">
-                <Icon type="ios-create-outline" color="blue" :size="18" title="编辑"/>
-                <Icon type="ios-trash-outline" color="red" :size="18" title="逻辑删除"/>
-                <Icon type="ios-eye-outline" color="#f90" :size="18" title="修改密码"/>
-                <Icon type="ios-people-outline" color="green" :size="18" title="设置角色"/>
+                <Button shape="circle" icon="md-create" title="编辑" @click="handleEdit(row)"></Button>
+                <Button shape="circle" icon="md-trash" title="逻辑删除" @click="handleDelete(row)"></Button>
+                <Button shape="circle" icon="md-eye" title="修改密码" @click="handleDelete(row)"></Button>
+                <Button shape="circle" icon="md-people" title="设置角色" @click="handleDelete(row)"></Button>
             </template>
         </AppTable>
+
+        <!--新增界面-->
+        <CreateModal ref="createModal" @success="$refs['table'].refresh()"/>
     </div>
 </template>
 <script>
+    import CreateModal from './create-modal.vue';
+
     export default {
+        components: {CreateModal},
         data() {
             return {
                 user: {},
@@ -73,12 +79,19 @@
              * 逻辑删除
              *
              * @param row
-             * @param index
              */
-            delete: function (row, index) {
+            handleDelete: function (row) {
                 console.log('delete');
                 console.log(row);
-                console.log(index);
+            },
+            /**
+             * 编辑
+             *
+             * @param row
+             */
+            handleEdit: function (row) {
+                console.log('edit');
+                console.log(row);
             }
         }
     };
