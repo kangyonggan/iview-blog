@@ -61,6 +61,7 @@
                             });
                         }).catch(res => {
                             this.error(res.respMsg);
+                            this.loading = false;
                         });
                     }
                 });

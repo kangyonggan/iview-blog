@@ -63,8 +63,8 @@
         },
         mounted: function () {
             if (this.sort) {
-                this.params._sort = this.sort;
-                this.params._order = this.desc ? 'desc' : 'asc';
+                this.params.sort = this.sort;
+                this.params.order = this.desc ? 1 : 0;
             }
             this.refresh();
         },
@@ -103,11 +103,11 @@
              */
             sortChange: function (e) {
                 if (e.order !== 'normal') {
-                    this.params._sort = e.key;
-                    this.params._order = e.order;
+                    this.params.sort = e.key;
+                    this.params.order = e.order === 'asc' ? 0 : 1;
                 } else {
-                    this.params._sort = null;
-                    this.params._order = null;
+                    this.params.sort = '';
+                    this.params.order = 0;
                 }
 
                 this.jump(1);

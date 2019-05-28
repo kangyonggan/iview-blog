@@ -33,8 +33,13 @@
             handleClick(name) {
                 switch (name) {
                     case 'logout': {
-                        this.util.removeToken();
                         this.http.get('logout').then(() => {
+                            this.util.removeToken();
+                            this.$router.push({
+                                name: 'login'
+                            });
+                        }).catch(() => {
+                            this.util.removeToken();
                             this.$router.push({
                                 name: 'login'
                             });

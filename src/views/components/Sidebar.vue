@@ -12,6 +12,7 @@
                 </MenuItem>
             </Submenu>
         </Menu>
+        <Spin size="large" fix v-if="loading"></Spin>
     </Sider>
 </template>
 
@@ -24,6 +25,7 @@
         },
         data() {
             return {
+                loading: false,
                 menuList: [],
                 openedNames: []
             };
@@ -60,7 +62,9 @@
             }
         },
         mounted() {
+            this.loading = true;
             this.http.get('menus').then(data => {
+                this.loading = false;
                 this.menuList = data.menus;
                 this.openedNames = this.getOpenedNamesByActiveName(this.$route.name);
                 this.$nextTick(() => {
@@ -68,6 +72,7 @@
                     this.$refs.menu.updateActiveName();
                 });
             }).catch(res => {
+                this.loading = false;
                 if (res.respCo === '9998') {
                     this.util.removeToken();
                     this.$router.push({
@@ -83,6 +88,8 @@
 
 <style lang="less">
     .sider {
+        min-height: 200px;
+        background: #fff !important;
         float: left;
         overflow: scroll;
     }

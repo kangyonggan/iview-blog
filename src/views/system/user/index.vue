@@ -96,7 +96,7 @@
                     loading: true,
                     closable: true,
                     onOk: function () {
-                        const data = {isDeleted: 1 * !row.isDeleted};
+                        const data = {isDeleted: 1 * !row.isDeleted, userId: row.userId};
                         this.http.post('/system/user/delete', data).then(() => {
                             that.$refs['table'].refresh();
                         }).catch(res => {

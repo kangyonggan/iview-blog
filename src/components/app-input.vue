@@ -42,3 +42,9 @@
 
     Vue.component('AppInput', AppInput);
 </script>
+
+<style>
+    input[readonly] {
+        background: #fafafa;
+    }
+</style>
