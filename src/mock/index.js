@@ -4,6 +4,7 @@ import login from './login';
 import userData from './userData';
 import menus from './menus';
 import users from './users';
+import userRole from './userRole';
 
 /**
  * 登录
@@ -44,6 +45,27 @@ Mock.mock('/system/user', 'post', () => {
  * 电子邮箱校验
  */
 Mock.mock('/validate/email', 'post', () => {
+    return success;
+});
+
+/**
+ * 查找用户角色
+ */
+Mock.mock('/system/user/role', 'post', () => {
+    return userRole;
+});
+
+/**
+ * 保存用户
+ */
+Mock.mock('/system/user/save', 'post', () => {
+    return success;
+});
+
+/**
+ * 更新用户
+ */
+Mock.mock('/system/user/update', 'post', () => {
     return success;
 });
 

@@ -18,19 +18,22 @@
                 <Button shape="circle" icon="md-build" title="编辑" @click="handleEdit(row)"></Button>
                 <Button shape="circle" icon="md-trash" title="逻辑删除" @click="handleDelete(row)"></Button>
                 <Button shape="circle" icon="md-lock" title="修改密码" @click="handleDelete(row)"></Button>
-                <Button shape="circle" icon="md-paw" title="设置角色" @click="handleDelete(row)"></Button>
             </template>
         </AppTable>
 
         <!--新增界面-->
         <CreateModal ref="createModal" @success="$refs['table'].refresh()"/>
+
+        <!--编辑界面-->
+        <EditModal ref="editModal" @success="$refs['table'].refresh()"/>
     </div>
 </template>
 <script>
     import CreateModal from './create-modal.vue';
+    import EditModal from './edit-modal.vue';
 
     export default {
-        components: {CreateModal},
+        components: {CreateModal, EditModal},
         data() {
             return {
                 user: {},
@@ -90,8 +93,7 @@
              * @param row
              */
             handleEdit: function (row) {
-                console.log('edit');
-                console.log(row);
+                this.$refs['editModal'].show({userId: row.userId, email: row.email});
             }
         }
     };

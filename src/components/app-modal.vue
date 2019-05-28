@@ -67,7 +67,6 @@
                     if (valid) {
                         this.loading();
                         this.http.ajax(this.method, this.action, this.model).then(data => {
-                            this.success(data.respMsg);
                             this.hide();
                             this.$emit('success', data);
                         }).catch(res => {
