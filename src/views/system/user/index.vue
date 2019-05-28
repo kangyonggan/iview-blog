@@ -84,8 +84,23 @@
              * @param row
              */
             handleDelete: function (row) {
-                console.log('delete');
-                console.log(row);
+                let title = row.isDeleted ? '恢复' : '删除';
+                let that = this;
+                this.$Modal.confirm({
+                    title: title + '确认',
+                    content: '确认' + title + row.email + '吗？',
+                    loading: true,
+                    closable: true,
+                    onOk: function () {
+                        const data = {isDeleted: 1 * !row.isDeleted};
+                        this.http.post('/system/user/delete', data).then(() => {
+                            that.$refs['table'].refresh();
+                        }).catch(res => {
+                            that.error(res.respMsg);
+                        });
+                        that.$Modal.remove();
+                    }
+                })
             },
             /**
              * 编辑

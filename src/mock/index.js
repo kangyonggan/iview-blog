@@ -69,5 +69,12 @@ Mock.mock('/system/user/update', 'post', () => {
     return success;
 });
 
+/**
+ * 删除/恢复用户
+ */
+Mock.mock('/system/user/delete', 'post', () => {
+    return success;
+});
+
 
 export default Mock;
