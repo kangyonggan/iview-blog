@@ -15,10 +15,10 @@
         <AppTable ref="table" url="/system/user" :columns="columns" :form="$refs.queryForm">
             <!--表格的操作-->
             <template slot-scope="{row, index}">
-                <Button shape="circle" icon="md-create" title="编辑" @click="handleEdit(row)"></Button>
+                <Button shape="circle" icon="md-build" title="编辑" @click="handleEdit(row)"></Button>
                 <Button shape="circle" icon="md-trash" title="逻辑删除" @click="handleDelete(row)"></Button>
-                <Button shape="circle" icon="md-eye" title="修改密码" @click="handleDelete(row)"></Button>
-                <Button shape="circle" icon="md-people" title="设置角色" @click="handleDelete(row)"></Button>
+                <Button shape="circle" icon="md-lock" title="修改密码" @click="handleDelete(row)"></Button>
+                <Button shape="circle" icon="md-paw" title="设置角色" @click="handleDelete(row)"></Button>
             </template>
         </AppTable>
 
@@ -54,7 +54,7 @@
                         }
                     },
                     {
-                        title: '注册时间',
+                        title: '创建时间',
                         key: 'createdTime',
                         sortable: true,
                         render: (h, params) => {

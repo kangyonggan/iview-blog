@@ -7,14 +7,14 @@
                         <FormItem prop="email">
                             <Input type="email" v-model="user.email" placeholder="请输入电子邮箱" clearable>
                                 <span slot="prepend">
-                                  <Icon :size="16" type="ios-mail-outline"></Icon>
+                                  <Icon :size="16" type="md-mail"></Icon>
                                 </span>
                             </Input>
                         </FormItem>
                         <FormItem prop="password">
                             <Input type="password" v-model="user.password" placeholder="请输入密码" clearable>
                                 <span slot="prepend">
-                                  <Icon :size="14" type="ios-eye-outline"></Icon>
+                                  <Icon :size="14" type="md-lock"></Icon>
                                 </span>
                             </Input>
                         </FormItem>

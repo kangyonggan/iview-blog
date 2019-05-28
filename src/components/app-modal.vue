@@ -1,5 +1,5 @@
 <template>
-    <Modal :title="title" v-model="showModel" :mask-closable="false" :closable="false" :draggable="true">
+    <Modal :title="title" v-model="showModel" :mask-closable="false" :closable="false">
         <Form ref="form" :model="model" :rules="rules">
             <slot></slot>
         </Form>

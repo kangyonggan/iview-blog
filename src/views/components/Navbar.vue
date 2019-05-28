@@ -11,7 +11,10 @@
                     <Icon type="md-arrow-dropdown" color="#999"/>
                 </a>
                 <DropdownMenu slot="list">
-                    <DropdownItem name="logout">安全退出</DropdownItem>
+                    <DropdownItem name="logout">
+                        <Icon type="md-log-out" size="18"/>
+                        安全退出
+                    </DropdownItem>
                 </DropdownMenu>
             </Dropdown>
         </div>

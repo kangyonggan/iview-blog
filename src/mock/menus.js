@@ -5,7 +5,7 @@ export default {
         'menus': [{
             menuCode: 'SYSTEM',
             menuName: '系统',
-            icon: 'md-cog',
+            icon: 'md-settings',
             children: [{
                 menuCode: 'SYSTEM_USER',
                 menuName: '用户管理',
