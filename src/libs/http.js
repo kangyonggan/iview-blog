@@ -76,7 +76,7 @@ class HttpRequest {
     }
 
     // http请求实例
-    http(method, url, data) {
+    ajax(method, url, data) {
         let options = {
             url: url,
             data,

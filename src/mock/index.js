@@ -40,5 +40,12 @@ Mock.mock('/system/user', 'post', () => {
     return users;
 });
 
+/**
+ * 电子邮箱校验
+ */
+Mock.mock('/validate/email', 'post', () => {
+    return success;
+});
+
 
 export default Mock;
