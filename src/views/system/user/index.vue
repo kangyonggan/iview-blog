@@ -17,7 +17,7 @@
             <template slot-scope="{row, index}">
                 <Button shape="circle" icon="md-build" title="编辑" @click="handleEdit(row)"></Button>
                 <Button shape="circle" icon="md-trash" title="逻辑删除" @click="handleDelete(row)"></Button>
-                <Button shape="circle" icon="md-lock" title="修改密码" @click="handleDelete(row)"></Button>
+                <Button shape="circle" icon="md-lock" title="修改密码" @click="editPassword(row)"></Button>
             </template>
         </AppTable>
 
@@ -26,14 +26,18 @@
 
         <!--编辑界面-->
         <EditModal ref="editModal" @success="$refs['table'].refresh()"/>
+
+        <!--修改密码界面-->
+        <PasswordModal ref="passwordModal"/>
     </div>
 </template>
 <script>
     import CreateModal from './create-modal.vue';
     import EditModal from './edit-modal.vue';
+    import PasswordModal from './password-modal.vue';
 
     export default {
-        components: {CreateModal, EditModal},
+        components: {CreateModal, EditModal, PasswordModal},
         data() {
             return {
                 user: {},
@@ -109,6 +113,13 @@
              */
             handleEdit: function (row) {
                 this.$refs['editModal'].show({userId: row.userId, email: row.email});
+            },
+            /**
+             * 修改密码
+             * @param row
+             */
+            editPassword: function (row) {
+                this.$refs.passwordModal.show({userId: row.userId, email: row.email});
             }
         }
     };

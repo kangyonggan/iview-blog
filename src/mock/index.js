@@ -76,5 +76,11 @@ Mock.mock('/system/user/delete', 'post', () => {
     return success;
 });
 
+/**
+ * 修改用户密码
+ */
+Mock.mock('/system/user/password', 'post', () => {
+    return success;
+});
 
 export default Mock;
