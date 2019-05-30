@@ -267,4 +267,18 @@ Mock.mock('/sites/article/detail', 'post', () => {
     return article;
 });
 
+/**
+ * 保存文章
+ */
+Mock.mock('/sites/article/save', 'post', () => {
+    return success;
+});
+
+/**
+ * 更新文章
+ */
+Mock.mock('/sites/article/update', 'post', () => {
+    return success;
+});
+
 export default Mock;
