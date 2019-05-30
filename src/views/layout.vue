@@ -1,6 +1,6 @@
 <template>
     <div class="layout">
-        <Navbar :user="user"/>
+        <Navbar :avatar="avatar"/>
         <Sidebar :activeName="$route" @on-select="turnToPage"/>
         <div class="main">
             <TagsNav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag"/>
@@ -22,7 +22,6 @@
         components: {Navbar, Sidebar, TagsNav},
         data() {
             return {
-                user: {},
                 tagNavList: []
             };
         },
@@ -36,7 +35,7 @@
             // 关闭Tab页
             handleCloseTag(res, route) {
                 this.tagNavList = res;
-                this.util.setTagNavList(this.user.userId, res);
+                this.util.setTagNavList(this.$store.state.app.user.userId, res);
                 if (route) {
                     this.handleClick(route);
                 }
@@ -52,9 +51,12 @@
         },
         mounted() {
             this.http.get('userData').then(data => {
-                this.user = data.user;
+                let user = data.user;
+                let avatar = user.avatar;
+                user.avatar = avatar ? this.baseUrl + avatar : '/static/images/avatar.jpg';
+                this.$store.commit('setUser', user);
 
-                this.tagNavList = this.util.getTagNavList(this.user.userId);
+                this.tagNavList = this.util.getTagNavList(user.userId);
             }).catch(res => {
                 if (res.respCo === '9998') {
                     this.util.removeToken();
@@ -65,6 +67,11 @@
                     this.error(res.respMsg);
                 }
             });
+        },
+        computed: {
+            avatar: function () {
+                return this.$store.state.app.user.avatar;
+            }
         },
         watch: {
             '$route'(newRoute) {
@@ -83,7 +90,7 @@
                         }
                     });
 
-                    this.util.setTagNavList(this.user.userId, this.tagNavList);
+                    this.util.setTagNavList(this.$store.state.app.user.userId, this.tagNavList);
                 }
             }
         }

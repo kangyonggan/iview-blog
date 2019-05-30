@@ -59,7 +59,7 @@
         },
         methods: {
             handlescroll(e) {
-                var type = e.type;
+                let type = e.type;
                 let delta = 0;
                 if (type === 'DOMMouseScroll' || type === 'mousewheel') {
                     delta = (e.wheelDelta) ? e.wheelDelta : -(e.detail || 0) * 40;
@@ -89,6 +89,8 @@
                     let res = this.list.filter(item => item.name === this.value.name || item.name === 'index');
                     this.$emit('on-close', res, null);
                 }
+                // 移动到最左边
+                this.tagBodyLeft = 0;
             },
             handleClose(e, name) {
                 let res = this.list.filter(item => item.name !== name);
@@ -133,7 +135,6 @@
         padding: 0;
         height: 40px;
         background: #F0F0F0;
-        overflow: hidden;
     }
 
     .tags-nav {
@@ -178,6 +179,7 @@
         }
 
         .scroll-outer {
+            overflow: hidden;
             position: absolute;
             left: 28px;
             right: 61px;

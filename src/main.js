@@ -56,9 +56,17 @@ router.afterEach(() => {
     window.scrollTo(0, 0);
 });
 
+export const store = new Vuex.Store({
+    state: {},
+    getters: {},
+    mutations: {},
+    actions: {},
+    modules: {app}
+});
+
 new Vue({
     el: '#app',
     router: router,
-    store: {app},
+    store: store,
     render: h => h(App)
 });

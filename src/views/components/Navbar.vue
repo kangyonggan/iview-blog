@@ -7,7 +7,7 @@
 
             <Dropdown class="navbar-user" trigger="click" @on-click="handleClick" placement="bottom-end">
                 <a class="avatar">
-                    <img :src="getAvatar()"/>
+                    <img :src="avatar"/>
                     <Icon type="md-arrow-dropdown" color="#999"/>
                 </a>
                 <DropdownMenu slot="list">
@@ -28,9 +28,8 @@
 <script>
     export default {
         props: {
-            user: {
-                type: Object,
-                default: {}
+            avatar: {
+                type: String
             }
         },
         methods: {
@@ -57,10 +56,6 @@
                         break;
                     }
                 }
-            },
-            getAvatar: function () {
-                let avatar = this.user.avatar;
-                return avatar ? this.baseUrl + avatar : '/static/images/avatar.jpg';
             }
         }
     };

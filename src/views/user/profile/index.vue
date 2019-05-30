@@ -1,12 +1,22 @@
 <template>
     <div>
-        profile
+        <Tabs type="card">
+            <TabPane label="我的头像">
+                <UploadAvatar/>
+            </TabPane>
+            <TabPane label="基础信息">
+                基础信息
+                <!--<EditProfile/>-->
+            </TabPane>
+        </Tabs>
     </div>
 </template>
 
 <script>
-    export default {};
-</script>
+    import UploadAvatar from './upload-avatar';
+    // import EditProfile from './edit-profile';
 
-<style scoped>
-</style>
+    export default {
+        components: {UploadAvatar}
+    };
+</script>
