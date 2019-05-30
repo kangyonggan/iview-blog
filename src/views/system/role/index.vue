@@ -17,7 +17,7 @@
             <!--表格的操作-->
             <template slot-scope="{row, index}">
                 <Button shape="circle" icon="md-build" title="编辑" @click="handleEdit(row)"></Button>
-                <Button shape="circle" icon="md-trash" title="逻辑删除" @click="handleDelete(row)"></Button>
+                <Button shape="circle" icon="md-trash" title="逻辑删除/恢复" @click="handleDelete(row)"></Button>
             </template>
         </AppTable>
 

@@ -8,6 +8,8 @@ import userRole from './userRole';
 import roles from './roles';
 import roleMenu from './roleMenu';
 import sysMenus from './sysMenus';
+import dicts from './dicts';
+import enumList from './enumList';
 
 /**
  * 登录
@@ -160,6 +162,48 @@ Mock.mock('/system/menu/update', 'post', () => {
  * 删除菜单
  */
 Mock.mock('/system/menu/delete', 'post', () => {
+    return success;
+});
+
+/**
+ * 字典列表
+ */
+Mock.mock('/system/dict', 'post', () => {
+    return dicts;
+});
+
+/**
+ * 枚举列表
+ */
+Mock.mock('/enum', 'post', () => {
+    return enumList;
+});
+
+/**
+ * 字典代码校验
+ */
+Mock.mock('/validate/dict', 'post', () => {
+    return success;
+});
+
+/**
+ * 保存字典
+ */
+Mock.mock('/system/dict/save', 'post', () => {
+    return success;
+});
+
+/**
+ * 更新字典
+ */
+Mock.mock('/system/dict/update', 'post', () => {
+    return success;
+});
+
+/**
+ * 删除/恢复字典
+ */
+Mock.mock('/system/dict/delete', 'post', () => {
     return success;
 });
 
