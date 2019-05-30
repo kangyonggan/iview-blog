@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white">
+    <div>
         <div class="content">
             <h3>一、基本功能</h3>
             <ul>
@@ -21,6 +21,13 @@
                         <li>相册管理</li>
                         <li>视频管理</li>
                         <li>小说管理</li>
+                    </ul>
+                </li>
+                <li>
+                    我的
+                    <ul>
+                        <li>个人资料</li>
+                        <li>修改密码</li>
                     </ul>
                 </li>
             </ul>

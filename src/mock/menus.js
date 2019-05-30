@@ -44,6 +44,19 @@ export default {
                 menuName: '小说管理',
                 icon: ''
             }]
+        }, {
+            menuCode: 'USER',
+            menuName: '我的',
+            icon: 'md-person',
+            children: [{
+                menuCode: 'USER_PROFILE',
+                menuName: '个人资料',
+                icon: ''
+            }, {
+                menuCode: 'USER_PASSWORD',
+                menuName: '修改密码',
+                icon: ''
+            }]
         }]
     }
 };

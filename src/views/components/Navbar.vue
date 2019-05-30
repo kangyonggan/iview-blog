@@ -11,6 +11,10 @@
                     <Icon type="md-arrow-dropdown" color="#999"/>
                 </a>
                 <DropdownMenu slot="list">
+                    <DropdownItem name="profile">
+                        <Icon type="md-person" size="18"/>
+                        个人资料
+                    </DropdownItem>
                     <DropdownItem name="logout">
                         <Icon type="md-log-out" size="18"/>
                         安全退出
@@ -32,6 +36,12 @@
         methods: {
             handleClick(name) {
                 switch (name) {
+                    case 'profile': {
+                        this.$router.push({
+                            name: 'USER_PROFILE'
+                        });
+                        break;
+                    }
                     case 'logout': {
                         this.http.get('logout').then(() => {
                             this.util.removeToken();

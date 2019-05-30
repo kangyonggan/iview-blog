@@ -46,6 +46,54 @@ const routers = [{
                 title: '字典管理'
             },
             component: (resolve) => require(['./views/system/dict/index.vue'], resolve)
+        },
+        {
+            path: 'sites/article',
+            name: 'SITES_ARTICLE',
+            meta: {
+                title: '文章管理'
+            },
+            component: (resolve) => require(['./views/sites/article/index.vue'], resolve)
+        },
+        {
+            path: 'sites/album',
+            name: 'SITES_ALBUM',
+            meta: {
+                title: '相册管理'
+            },
+            component: (resolve) => require(['./views/sites/album/index.vue'], resolve)
+        },
+        {
+            path: 'sites/video',
+            name: 'SITES_VIDEO',
+            meta: {
+                title: '视频管理'
+            },
+            component: (resolve) => require(['./views/sites/video/index.vue'], resolve)
+        },
+        {
+            path: 'sites/novel',
+            name: 'SITES_NOVEL',
+            meta: {
+                title: '小说管理'
+            },
+            component: (resolve) => require(['./views/sites/novel/index.vue'], resolve)
+        },
+        {
+            path: 'user/profile',
+            name: 'USER_PROFILE',
+            meta: {
+                title: '个人资料'
+            },
+            component: (resolve) => require(['./views/user/profile/index.vue'], resolve)
+        },
+        {
+            path: 'user/password',
+            name: 'USER_PASSWORD',
+            meta: {
+                title: '修改密码'
+            },
+            component: (resolve) => require(['./views/user/password/index.vue'], resolve)
         }, {
             path: '/*',
             name: '404',

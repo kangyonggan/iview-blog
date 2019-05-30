@@ -133,6 +133,7 @@
         padding: 0;
         height: 40px;
         background: #F0F0F0;
+        overflow: hidden;
     }
 
     .tags-nav {
