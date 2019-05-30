@@ -91,6 +91,7 @@
                     height: 35px;
                     width: 35px;
                     border-radius: 50%;
+                    border: 1px solid #cccccccc;
                 }
 
                 i {

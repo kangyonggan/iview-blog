@@ -52,8 +52,6 @@
         mounted() {
             this.http.get('userData').then(data => {
                 let user = data.user;
-                let avatar = user.avatar;
-                user.avatar = avatar ? this.baseUrl + avatar : '/static/images/avatar.jpg';
                 this.$store.commit('setUser', user);
 
                 this.tagNavList = this.util.getTagNavList(user.userId);

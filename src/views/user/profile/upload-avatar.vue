@@ -63,21 +63,8 @@
                 }
                 let formData = new FormData();
                 formData.append('file', file);
-                this.http.post('', formData).then(data => {
-                    this.success(data.respMsg);
-                    this.http.post('/user/profile', {avatar: data.data.fileName}).then(data => {
-                        if (data.respCo === '0000') {
-                            // store.dispatch('reload').then(data => {
-                            //     if (data.respCo === '0000') {
-                            //         this.reload();
-                            //     } else {
-                            //         this.error(data.respMsg);
-                            //     }
-                            // });
-                        } else {
-                            this.error(data.respMsg);
-                        }
-                    });
+                this.http.postUpload('/user/profile/avatar', formData).then(data => {
+                    this.$store.commit('setUser', data.user);
                 }).catch(res => {
                     this.error(res.respMsg);
                 });

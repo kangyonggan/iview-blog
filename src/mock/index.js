@@ -10,6 +10,7 @@ import roleMenu from './roleMenu';
 import sysMenus from './sysMenus';
 import dicts from './dicts';
 import enumList from './enumList';
+import userProfileAvatar from './userProfileAvatar';
 
 /**
  * 登录
@@ -205,6 +206,13 @@ Mock.mock('/system/dict/update', 'post', () => {
  */
 Mock.mock('/system/dict/delete', 'post', () => {
     return success;
+});
+
+/**
+ * 上传头像
+ */
+Mock.mock('/user/profile/avatar', 'post', () => {
+    return userProfileAvatar;
 });
 
 export default Mock;
