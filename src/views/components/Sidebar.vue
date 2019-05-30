@@ -42,7 +42,7 @@
                         continue;
                     }
                     for (let j = 0; j < menu.children.length; j++) {
-                        if (menu.children[j].menuCode === name) {
+                        if (name.startsWith(menu.children[j].menuCode)) {
                             res.push(menu.menuCode);
                             return res;
                         }
@@ -53,7 +53,10 @@
         },
         watch: {
             activeName(route) {
-                this.openedNames = this.getOpenedNamesByActiveName(route.name);
+                let openedNames = this.getOpenedNamesByActiveName(route.name);
+                if (openedNames.length) {
+                    this.openedNames = openedNames;
+                }
             },
             openedNames() {
                 this.$nextTick(() => {

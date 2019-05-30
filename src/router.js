@@ -56,6 +56,14 @@ const routers = [{
             component: (resolve) => require(['./views/sites/article/index.vue'], resolve)
         },
         {
+            path: 'sites/article/form',
+            name: 'SITES_ARTICLE_FORM',
+            meta: {
+                title: '文章表单'
+            },
+            component: (resolve) => require(['./views/sites/article/form.vue'], resolve)
+        },
+        {
             path: 'sites/album',
             name: 'SITES_ALBUM',
             meta: {

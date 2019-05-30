@@ -65,6 +65,7 @@
                         title: '创建时间',
                         key: 'createdTime',
                         sortable: true,
+                        minWidth: 10,
                         render: (h, params) => {
                             return h('span', this.dateFormat(params.row.createdTime, 'yyyy-MM-dd HH:mm:ss'));
                         }
@@ -73,6 +74,7 @@
                         title: '更新时间',
                         key: 'updatedTime',
                         sortable: true,
+                        minWidth: 10,
                         render: (h, params) => {
                             return h('span', this.dateFormat(params.row.updatedTime, 'yyyy-MM-dd HH:mm:ss'));
                         }

@@ -12,6 +12,8 @@ import dicts from './dicts';
 import enumList from './enumList';
 import idTypes from './idTypes';
 import userProfileAvatar from './userProfileAvatar';
+import articles from './articles';
+import article from './article';
 
 /**
  * 登录
@@ -242,6 +244,27 @@ Mock.mock('/user/profile', 'post', () => {
  */
 Mock.mock('/user/profile/password', 'post', () => {
     return success;
+});
+
+/**
+ * 文章列表
+ */
+Mock.mock('/sites/article', 'post', () => {
+    return articles;
+});
+
+/**
+ * 删除/恢复文章
+ */
+Mock.mock('/sites/article/delete', 'post', () => {
+    return success;
+});
+
+/**
+ * 文章详情
+ */
+Mock.mock('/sites/article/detail', 'post', () => {
+    return article;
 });
 
 export default Mock;

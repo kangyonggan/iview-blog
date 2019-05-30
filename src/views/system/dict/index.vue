@@ -71,6 +71,7 @@
                         title: '创建时间',
                         key: 'createdTime',
                         sortable: true,
+                        minWidth: 10,
                         render: (h, params) => {
                             return h('span', this.dateFormat(params.row.createdTime, 'yyyy-MM-dd HH:mm:ss'));
                         }

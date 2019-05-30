@@ -42,10 +42,11 @@
             },
             // 激活Tab页
             handleClick(item) {
+                console.log(item);
                 this.$router.push({
                     name: item.name,
-                    params: item.meta.params,
-                    query: item.meta.query
+                    params: item.params,
+                    query: item.query
                 });
             }
         },
@@ -85,7 +86,9 @@
                         name: newRoute.name,
                         meta: {
                             title: newRoute.meta.title
-                        }
+                        },
+                        query: newRoute.query,
+                        params: newRoute.params
                     });
 
                     this.util.setTagNavList(this.$store.state.app.user.userId, this.tagNavList);
