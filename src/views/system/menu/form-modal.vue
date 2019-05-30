@@ -56,7 +56,7 @@
                     return;
                 }
 
-                this.http.post('validate/menu', {menuCode: value}).then(() => {
+                this.http.post('/validate/menu', {menuCode: value}).then(() => {
                     callback();
                 }).catch(res => {
                     callback(new Error(res.respMsg));

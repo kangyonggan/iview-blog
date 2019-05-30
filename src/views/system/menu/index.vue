@@ -179,7 +179,7 @@
                     loading: true,
                     closable: true,
                     onOk: function () {
-                        this.http.post('/system/menu/', {menuId: node.node.id}).then(() => {
+                        this.http.post('/system/menu/delete', {menuId: node.node.id}).then(() => {
                             that.formSuccess();
                         }).catch(res => {
                             that.error(res.respMsg);

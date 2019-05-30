@@ -1,5 +1,5 @@
 <template>
-    <FormItem :prop="prop" :label="label">
+    <FormItem v-if="vIf" :prop="prop" :label="label">
         <Input :type="type" v-model="model[prop]" :placeholder="placeholder ? placeholder : '请输入' + label"
                :clearable="clearable" :readonly="readonly"/>
     </FormItem>
@@ -13,6 +13,10 @@
             model: {
                 required: true,
                 type: Object
+            },
+            vIf: {
+                type: Boolean,
+                default: true
             },
             prop: {
                 required: true,

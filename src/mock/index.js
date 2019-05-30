@@ -135,4 +135,32 @@ Mock.mock('/system/menu', 'get', () => {
     return sysMenus;
 });
 
+/**
+ * 菜单代码校验
+ */
+Mock.mock('/validate/menu', 'post', () => {
+    return success;
+});
+
+/**
+ * 保存菜单
+ */
+Mock.mock('/system/menu/save', 'post', () => {
+    return success;
+});
+
+/**
+ * 更新菜单
+ */
+Mock.mock('/system/menu/update', 'post', () => {
+    return success;
+});
+
+/**
+ * 删除菜单
+ */
+Mock.mock('/system/menu/delete', 'post', () => {
+    return success;
+});
+
 export default Mock;
