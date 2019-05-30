@@ -42,7 +42,7 @@
                         break;
                     }
                     case 'logout': {
-                        this.http.get('logout').then(() => {
+                        this.http.get('/logout').then(() => {
                             this.util.removeToken();
                             this.$router.push({
                                 name: 'login'

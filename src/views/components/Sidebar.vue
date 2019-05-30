@@ -63,7 +63,7 @@
         },
         mounted() {
             this.loading = true;
-            this.http.get('menus').then(data => {
+            this.http.get('/menus').then(data => {
                 this.loading = false;
                 this.menuList = data.menus;
                 this.openedNames = this.getOpenedNamesByActiveName(this.$route.name);

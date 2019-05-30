@@ -50,7 +50,7 @@
             }
         },
         mounted() {
-            this.http.get('userData').then(data => {
+            this.http.get('/userData').then(data => {
                 let user = data.user;
                 this.$store.commit('setUser', user);
 

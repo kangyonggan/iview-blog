@@ -53,7 +53,7 @@
                 this.$refs.loginForm.validate((valid) => {
                     if (valid) {
                         this.loading = true;
-                        this.http.post('login', this.user).then(res => {
+                        this.http.post('/login', this.user).then(res => {
                             this.util.setToken(res[this.util.tokenKey]);
 
                             this.$router.push({

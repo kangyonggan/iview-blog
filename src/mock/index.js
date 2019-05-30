@@ -16,28 +16,28 @@ import userProfileAvatar from './userProfileAvatar';
 /**
  * 登录
  */
-Mock.mock('login', 'post', () => {
+Mock.mock('/login', 'post', () => {
     return login;
 });
 
 /**
  * 登出
  */
-Mock.mock('logout', 'get', () => {
+Mock.mock('/logout', 'get', () => {
     return success;
 });
 
 /**
  * 用户数据
  */
-Mock.mock('userData', 'get', () => {
+Mock.mock('/userData', 'get', () => {
     return userData;
 });
 
 /**
  * 用户菜单
  */
-Mock.mock('menus', 'get', () => {
+Mock.mock('/menus', 'get', () => {
     return menus;
 });
 
@@ -234,6 +234,13 @@ Mock.mock('/validate/idNo', 'post', () => {
  * 更新用户信息
  */
 Mock.mock('/user/profile', 'post', () => {
+    return success;
+});
+
+/**
+ * 修改密码
+ */
+Mock.mock('/user/profile/password', 'post', () => {
     return success;
 });
 
