@@ -5,8 +5,7 @@
                 <UploadAvatar/>
             </TabPane>
             <TabPane label="基础信息">
-                基础信息
-                <!--<EditProfile/>-->
+                <EditProfile/>
             </TabPane>
         </Tabs>
     </div>
@@ -14,9 +13,9 @@
 
 <script>
     import UploadAvatar from './upload-avatar';
-    // import EditProfile from './edit-profile';
+    import EditProfile from './edit-profile';
 
     export default {
-        components: {UploadAvatar}
+        components: {UploadAvatar, EditProfile}
     };
 </script>

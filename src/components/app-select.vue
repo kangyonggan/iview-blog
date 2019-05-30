@@ -1,6 +1,6 @@
 <template>
     <FormItem :prop="prop" :label="label">
-        <Select v-model="model[prop]" :placeholder="placeholder ? placeholder : '请选择' + label" :disabled="disabled">
+        <Select v-model="model[prop]" :placeholder="placeholder ? placeholder : '请选择' + label" :disabled="disabled" clearable>
             <Option v-for="item in list" :value='item.code' :key="item.code">
                 {{item.name}}
             </Option>
@@ -10,8 +10,10 @@
 
 <script>
     import Vue from 'vue';
+    import Operation from 'iview/src/components/transfer/operation';
 
     const AppSelect = {
+        components: {Operation},
         props: {
             model: {
                 required: true,

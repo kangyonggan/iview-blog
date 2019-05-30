@@ -19,3 +19,6 @@ import './app-modal';
 
 // 树
 import './app-tree';
+
+// 表单
+import './app-form';

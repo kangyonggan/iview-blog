@@ -10,6 +10,7 @@ import roleMenu from './roleMenu';
 import sysMenus from './sysMenus';
 import dicts from './dicts';
 import enumList from './enumList';
+import idTypes from './idTypes';
 import userProfileAvatar from './userProfileAvatar';
 
 /**
@@ -181,6 +182,13 @@ Mock.mock('/enum', 'post', () => {
 });
 
 /**
+ * 字典列表
+ */
+Mock.mock('/dict', 'post', () => {
+    return idTypes;
+});
+
+/**
  * 字典代码校验
  */
 Mock.mock('/validate/dict', 'post', () => {
@@ -213,6 +221,20 @@ Mock.mock('/system/dict/delete', 'post', () => {
  */
 Mock.mock('/user/profile/avatar', 'post', () => {
     return userProfileAvatar;
+});
+
+/**
+ * 证件号码校验
+ */
+Mock.mock('/validate/idNo', 'post', () => {
+    return success;
+});
+
+/**
+ * 更新用户信息
+ */
+Mock.mock('/user/profile', 'post', () => {
+    return success;
 });
 
 export default Mock;

@@ -1,5 +1,5 @@
 <template>
-    <AppForm ref="modal" action="user/profile/" method="put" :model="userProfile" :rules="rules"
+    <AppForm ref="modal" action="/user/profile" :model="userProfile" :rules="rules"
              @success="handleSuccess">
         <AppInput :model="userProfile" prop="userId" label="用户ID" readonly :clearable="false"/>
         <AppInput :model="userProfile" prop="email" label="电子邮箱" readonly :clearable="false"/>
@@ -11,9 +11,6 @@
 </template>
 
 <script>
-    import Http from '@/libs/http';
-    import {store} from '@/main';
-
     export default {
         data() {
             return {
@@ -29,14 +26,18 @@
             };
         },
         mounted() {
-            const user = this.$store.state.StoreApp.user;
-            this.userProfile = {
-                userId: user.userId,
-                email: user.email,
-                name: user.name,
-                idType: user.idType,
-                idNo: user.idNo
-            };
+            this.http.get('userData').then(data => {
+                let user = data.user;
+                this.userProfile = {
+                    userId: user.userId,
+                    email: user.email,
+                    name: user.name,
+                    idType: user.idType,
+                    idNo: user.idNo
+                };
+            }).catch(res => {
+                this.error(res.respMsg);
+            });
         },
         methods: {
             validateIdNo: function (rule, value, callback) {
@@ -45,18 +46,14 @@
                     return;
                 }
 
-                Http.get('validate/idNo?idNo=' + value).then(() => {
+                this.http.post('/validate/idNo', {idNo: value}).then(() => {
                     callback();
-                }).catch(respMsg => {
-                    callback(new Error(respMsg));
+                }).catch(res => {
+                    callback(new Error(res.respMsg));
                 });
             },
             handleSuccess() {
-                store.dispatch('reload').then(data => {
-                    if (data.respCo !== '0000') {
-                        this.error(data.respMsg);
-                    }
-                });
+                this.success('更新成功');
             }
         }
     };
