@@ -88,6 +88,22 @@ const routers = [{
             component: (resolve) => require(['./views/sites/video/index.vue'], resolve)
         },
         {
+            path: 'sites/video/create',
+            name: 'SITES_VIDEO_CREATE',
+            meta: {
+                title: '新增视频'
+            },
+            component: (resolve) => require(['./views/sites/video/create.vue'], resolve)
+        },
+        {
+            path: 'sites/video/:videoId/edit',
+            name: 'SITES_VIDEO_EDIT',
+            meta: {
+                title: '编辑视频'
+            },
+            component: (resolve) => require(['./views/sites/video/edit.vue'], resolve)
+        },
+        {
             path: 'sites/novel',
             name: 'SITES_NOVEL',
             meta: {
