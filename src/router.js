@@ -56,12 +56,20 @@ const routers = [{
             component: (resolve) => require(['./views/sites/article/index.vue'], resolve)
         },
         {
-            path: 'sites/article/form',
-            name: 'SITES_ARTICLE_FORM',
+            path: 'sites/article/create',
+            name: 'SITES_ARTICLE_CREATE',
             meta: {
-                title: '文章表单'
+                title: '新增文章'
             },
-            component: (resolve) => require(['./views/sites/article/form.vue'], resolve)
+            component: (resolve) => require(['./views/sites/article/create.vue'], resolve)
+        },
+        {
+            path: 'sites/article/:articleId/edit',
+            name: 'SITES_ARTICLE_EDIT',
+            meta: {
+                title: '编辑文章'
+            },
+            component: (resolve) => require(['./views/sites/article/edit.vue'], resolve)
         },
         {
             path: 'sites/album',

@@ -11,6 +11,8 @@ import './components/index';
 import env from './config/env';
 import './libs/common';
 import app from './store/app';
+import iEditor from 'iview-editor';
+import 'iview-editor/dist/iview-editor.css';
 
 if (env === 'mock') {
     require('./mock');
@@ -19,6 +21,7 @@ if (env === 'mock') {
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(iView);
+Vue.use(iEditor);
 
 // 路由配置
 const RouterConfig = {

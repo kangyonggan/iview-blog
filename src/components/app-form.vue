@@ -64,7 +64,7 @@
 
 <style>
     .inner-content {
-        max-width: 600px;
+        max-width: 800px;
         margin: 20px auto;
     }
 </style>

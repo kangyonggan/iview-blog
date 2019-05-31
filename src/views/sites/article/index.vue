@@ -92,13 +92,13 @@
             },
             handleCreate: function () {
                 this.$router.push({
-                    name: 'SITES_ARTICLE_FORM'
+                    name: 'SITES_ARTICLE_CREATE'
                 });
             },
             handleEdit: function (row) {
                 this.$router.push({
-                    name: 'SITES_ARTICLE_FORM',
-                    query: {
+                    name: 'SITES_ARTICLE_EDIT',
+                    params: {
                         articleId: this.util.encryptUrl(row.articleId)
                     }
                 });

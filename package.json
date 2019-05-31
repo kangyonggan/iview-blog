@@ -26,7 +26,8 @@
         "jquery": "^1.8.3",
         "vue": "^2.5.2",
         "vue-router": "^3.0.1",
-        "vuex": "^3.1.1"
+        "vuex": "^3.1.1",
+        "iview-editor": "^1.1.1"
     },
     "devDependencies": {
         "autoprefixer-loader": "^3.2.0",
