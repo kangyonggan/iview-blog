@@ -32,7 +32,7 @@
     export default {
         data() {
             return {
-                user: {email: 'admin@kangyonggan.com', password: '11111111'},
+                user: {},
                 loading: false,
                 rules: {
                     email: [
