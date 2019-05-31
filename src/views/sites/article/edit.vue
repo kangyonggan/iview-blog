@@ -1,5 +1,5 @@
 <template>
-    <AppForm ref="modal" action="/sites/article/update" title="编辑文章" :model="article" :rules="rules" @success="handleSuccess">
+    <AppForm ref="modal" action="/sites/article/update" :model="article" :rules="rules" @success="handleSuccess">
         <AppInput :model="article" prop="articleId" label="文章ID" readonly :clearable="false"/>
         <AppInput :model="article" prop="title" label="文章标题"/>
         <AppInput :model="article" prop="summary" label="摘要"/>

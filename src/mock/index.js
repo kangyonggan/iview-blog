@@ -14,6 +14,8 @@ import idTypes from './idTypes';
 import userProfileAvatar from './userProfileAvatar';
 import articles from './articles';
 import article from './article';
+import novels from './novels';
+import novel from './novel';
 
 /**
  * 登录
@@ -278,6 +280,41 @@ Mock.mock('/sites/article/save', 'post', () => {
  * 更新文章
  */
 Mock.mock('/sites/article/update', 'post', () => {
+    return success;
+});
+
+/**
+ * 小说列表
+ */
+Mock.mock('/sites/novel', 'post', () => {
+    return novels;
+});
+
+/**
+ * 删除/恢复小说
+ */
+Mock.mock('/sites/novel/delete', 'post', () => {
+    return success;
+});
+
+/**
+ * 小说详情
+ */
+Mock.mock('/sites/novel/detail', 'post', () => {
+    return novel;
+});
+
+/**
+ * 保存小说
+ */
+Mock.mock('/sites/novel/save', 'post', () => {
+    return success;
+});
+
+/**
+ * 更新小说
+ */
+Mock.mock('/sites/novel/update', 'post', () => {
     return success;
 });
 

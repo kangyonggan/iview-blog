@@ -96,6 +96,22 @@ const routers = [{
             component: (resolve) => require(['./views/sites/novel/index.vue'], resolve)
         },
         {
+            path: 'sites/novel/create',
+            name: 'SITES_NOVEL_CREATE',
+            meta: {
+                title: '新增小说'
+            },
+            component: (resolve) => require(['./views/sites/novel/create.vue'], resolve)
+        },
+        {
+            path: 'sites/novel/:articleId/edit',
+            name: 'SITES_NOVEL_EDIT',
+            meta: {
+                title: '编辑小说'
+            },
+            component: (resolve) => require(['./views/sites/novel/edit.vue'], resolve)
+        },
+        {
             path: 'user/profile',
             name: 'USER_PROFILE',
             meta: {
