@@ -8,10 +8,10 @@ if (Env === 'development') {
     uploadUrl = 'http://localhost:8080/upload/';
 } else if (Env === 'hd') {
     baseUrl = 'https://kangyonggan.com/api/';
-    uploadUrl = 'https://kangyonggan.com/upload/';
+    uploadUrl = 'https://kangyonggan.com/web/';
 } else if (Env === 'production') {
     baseUrl = 'https://kangyonggan.com/api/';
-    uploadUrl = 'https://kangyonggan.com/upload/';
+    uploadUrl = 'https://kangyonggan.com/web/';
 }
 
 let config = {
