@@ -57,7 +57,7 @@
                 imgUrl: '',
                 visible: false,
                 defaultList: [],
-                // uploadList: [],
+                uploadList: [],
                 album: {},
                 /**
                  * 表单的校验
@@ -127,22 +127,20 @@
                     password: album.password
                 };
 
+                let list = [];
                 for (let i = 0; i < data.albumPhotos.length; i++) {
-                    this.defaultList[i] = {
+                    list[i] = {
                         name: data.albumPhotos[i].sort + '',
                         url: data.albumPhotos[i].url
                     };
                 }
-                // this.uploadList = this.$refs.upload.fileList;
-                // console.log(this.uploadList);
+                this.defaultList = list;
+                this.$nextTick(() => {
+                    this.uploadList = this.$refs.upload.fileList;
+                });
             }).catch(res => {
                 this.error(res.respMsg);
             });
-        },
-        computed: {
-            uploadList: function () {
-                return this.$refs['upload'].fileList;
-            }
         }
     };
 </script>
