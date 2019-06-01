@@ -164,4 +164,19 @@ util.getTagNavList = function (userId) {
     }];
 };
 
+/**
+ * 提取集合中对象的某个属性，组成一个新的集合
+ *
+ * @param list
+ * @param prop
+ * @return
+ */
+util.extractToList = function (list, prop) {
+  let result = [];
+  for (let i = 0; i < list.length; i++) {
+      result[i] = list[i][prop];
+  }
+  return result;
+};
+
 export default util;

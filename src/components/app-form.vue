@@ -2,6 +2,7 @@
     <Form ref="form" :model="model" :rules="rules" class="inner-content">
         <slot></slot>
 
+        <div style="clear: both;height: 20px;"></div>
         <FormItem>
             <Button type="success" icon="md-checkmark" :loading="isLoading" @click="handleSubmit($event, $refs.form)">
                 提交
@@ -43,6 +44,7 @@
                 form.validate((valid) => {
                     if (valid) {
                         this.isLoading = true;
+                        this.$emit('beforeUpload');
                         this.http.ajax(this.method, this.action, this.model).then(data => {
                             this.$emit('success', data);
                             this.isLoading = false;

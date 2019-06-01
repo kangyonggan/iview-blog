@@ -80,6 +80,22 @@ const routers = [{
             component: (resolve) => require(['./views/sites/album/index.vue'], resolve)
         },
         {
+            path: 'sites/album/create',
+                name: 'SITES_ALBUM_CREATE',
+            meta: {
+            title: '新增相册'
+        },
+            component: (resolve) => require(['./views/sites/album/create.vue'], resolve)
+        },
+        {
+            path: 'sites/album/:albumId/edit',
+                name: 'SITES_ALBUM_EDIT',
+            meta: {
+            title: '编辑相册'
+        },
+            component: (resolve) => require(['./views/sites/album/edit.vue'], resolve)
+        },
+        {
             path: 'sites/video',
             name: 'SITES_VIDEO',
             meta: {
