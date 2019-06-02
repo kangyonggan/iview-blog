@@ -94,6 +94,5 @@
         min-height: 200px;
         background: #fff !important;
         float: left;
-        overflow: scroll;
     }
 </style>
