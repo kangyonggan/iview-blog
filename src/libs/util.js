@@ -114,6 +114,9 @@ util.decrypt = function (data) {
     if (!data) {
         return {};
     }
+    if (typeof data === 'object') {
+        return data;
+    }
 
     let decrypted = CryptoJS.AES.decrypt(data, util.AES_KEY, {
         iv: util.AES_IV,
