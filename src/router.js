@@ -3,7 +3,7 @@ function layout(resolve) {
 }
 
 const routers = [{
-    path: '/',
+    path: '/admin/',
     name: 'layout',
     redirect: '/index',
     component: (resolve) => layout(resolve),
@@ -168,7 +168,7 @@ const routers = [{
         }
     ]
 }, {
-    path: '/login',
+    path: '/admin/login',
     name: 'login',
     meta: {
         title: '用户登录'
