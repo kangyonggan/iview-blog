@@ -5,14 +5,15 @@
                 <div class="form-con">
                     <Form ref="loginForm" :model="user" :rules="rules">
                         <FormItem prop="email">
-                            <Input type="email" v-model="user.email" placeholder="请输入电子邮箱" clearable>
+                            <Input type="email" v-model="user.email" placeholder="请输入电子邮箱"
+                                   autocomplete="on" autofocus clearable @on-enter="submit">
                                 <span slot="prepend">
                                   <Icon :size="16" type="md-mail"></Icon>
                                 </span>
                             </Input>
                         </FormItem>
                         <FormItem prop="password">
-                            <Input type="password" v-model="user.password" placeholder="请输入密码" clearable>
+                            <Input type="password" v-model="user.password" @on-enter="submit" autocomplete="on" placeholder="请输入密码" clearable>
                                 <span slot="prepend">
                                   <Icon :size="14" type="md-lock"></Icon>
                                 </span>
