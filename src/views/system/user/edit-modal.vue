@@ -59,8 +59,8 @@
 
                 this.http.post('/validate/email', {email: value}).then(() => {
                     callback();
-                }).catch(respMsg => {
-                    callback(new Error(respMsg));
+                }).catch(res => {
+                    callback(new Error(res.respMsg));
                 });
             },
             show: function (row) {
