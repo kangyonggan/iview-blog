@@ -74,24 +74,31 @@
         watch: {
             '$route'(newRoute) {
                 let exists = false;
+                let index = -1;
                 for (let i = 0; i < this.tagNavList.length; i++) {
                     if (this.tagNavList[i].name === newRoute.name) {
                         exists = true;
+                        index = i;
                         break;
                     }
                 }
-                if (!exists) {
-                    this.tagNavList.push({
-                        name: newRoute.name,
-                        meta: {
-                            title: newRoute.meta.title
-                        },
-                        query: newRoute.query,
-                        params: newRoute.params
-                    });
 
-                    this.util.setTagNavList(this.$store.state.app.user.userId, this.tagNavList);
+                let targetRoute = {
+                    name: newRoute.name,
+                    meta: {
+                        title: newRoute.meta.title
+                    },
+                    query: newRoute.query,
+                    params: newRoute.params
+                };
+
+                if (!exists) {
+                    this.tagNavList.push(targetRoute);
+                } else {
+                    this.tagNavList[index] = targetRoute;
                 }
+
+                this.util.setTagNavList(this.$store.state.app.user.userId, this.tagNavList);
             }
         }
     };
