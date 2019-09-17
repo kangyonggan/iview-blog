@@ -32,3 +32,9 @@
 [https://cn.vuejs.org/v2/guide/](https://cn.vuejs.org/v2/guide/)
 
 [https://www.iviewui.com/docs/guide/introduce](https://www.iviewui.com/docs/guide/introduce)
+
+## 四、运行
+```
+npm install
+npm run mock
+```
